@@ -5,9 +5,18 @@
 #include <chrono>
 #include <thread>
 
-void drawBoard() {
-    for (int i = 0; i <= 54 i++) {
-        for (int j = 0; j)
+void drawBoard(int rows, int cols, float cellSize) {
+
+    Rectangle r1 = {0, 0, cellSize, cellSize};
+
+    for (int row = 0; row < rows; row++) {
+        for (int col = 0; col < cols; col++) {
+            r1.x = col * cellSize;
+            r1.y = row * cellSize;
+
+            DrawRectangleRec(r1, GREEN);
+            DrawRectangleLinesEx(r1, (cellSize / 80), GRAY);
+        }
     }
 }
 
@@ -21,6 +30,7 @@ int main() {
         
         BeginDrawing();
 
+        drawBoard(24, 54, 30);
 
         EndDrawing();
     }
